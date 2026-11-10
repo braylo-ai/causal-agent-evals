@@ -1,0 +1,2787 @@
+{
+  "data": "SYNTHETIC: simulated LLM policy (no model weights) + sandbox tools",
+  "n_seeded_failures": 180,
+  "seed": 7,
+  "accuracy": {
+    "counterfactual": 1.0,
+    "last_tool_step": 0.194,
+    "first_error": 0.306,
+    "first_anomaly": 0.633
+  },
+  "hits": {
+    "counterfactual": 180,
+    "last_tool_step": 35,
+    "first_error": 55,
+    "first_anomaly": 114
+  },
+  "accuracy_by_fault_type": {
+    "counterfactual": {
+      "corrupt_memory": "20/20",
+      "drop_instruction": "20/20",
+      "llm_wrong_arg": "20/20",
+      "remove_tool:recall": "20/20",
+      "timeout:get_policy": "20/20",
+      "timeout:recall": "20/20",
+      "wrong_output:get_policy": "20/20",
+      "wrong_output:lookup_order": "20/20",
+      "wrong_output:recall": "20/20"
+    },
+    "last_tool_step": {
+      "corrupt_memory": "0/20",
+      "drop_instruction": "0/20",
+      "llm_wrong_arg": "0/20",
+      "remove_tool:recall": "0/20",
+      "timeout:get_policy": "0/20",
+      "timeout:recall": "20/20",
+      "wrong_output:get_policy": "0/20",
+      "wrong_output:lookup_order": "0/20",
+      "wrong_output:recall": "15/20"
+    },
+    "first_error": {
+      "corrupt_memory": "0/20",
+      "drop_instruction": "0/20",
+      "llm_wrong_arg": "0/20",
+      "remove_tool:recall": "0/20",
+      "timeout:get_policy": "20/20",
+      "timeout:recall": "20/20",
+      "wrong_output:get_policy": "0/20",
+      "wrong_output:lookup_order": "0/20",
+      "wrong_output:recall": "15/20"
+    },
+    "first_anomaly": {
+      "corrupt_memory": "18/20",
+      "drop_instruction": "20/20",
+      "llm_wrong_arg": "11/20",
+      "remove_tool:recall": "19/20",
+      "timeout:get_policy": "9/20",
+      "timeout:recall": "4/20",
+      "wrong_output:get_policy": "7/20",
+      "wrong_output:lookup_order": "17/20",
+      "wrong_output:recall": "9/20"
+    }
+  },
+  "accuracy_by_decoy": {
+    "counterfactual": {
+      "no_decoy": "88/88",
+      "with_decoy": "92/92"
+    },
+    "last_tool_step": {
+      "no_decoy": "12/88",
+      "with_decoy": "23/92"
+    },
+    "first_error": {
+      "no_decoy": "21/88",
+      "with_decoy": "34/92"
+    },
+    "first_anomaly": {
+      "no_decoy": "88/88",
+      "with_decoy": "26/92"
+    }
+  },
+  "counterfactual_replays": {
+    "mean": 1.51,
+    "max": 2
+  },
+  "cases": [
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C653",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C653"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "input:memory:lang:C537",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "input:memory:lang:C537"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R1"
+      },
+      "causal_set": [
+        "input:instruction:R1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C589",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:memory:tier:C589",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:tier:C589"
+      },
+      "causal_set": [
+        "input:memory:tier:C589"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "input:memory:lang:C783",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C783"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "input:memory:lang:C966",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "input:memory:lang:C966"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R3",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "input:instruction:R3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R3"
+      },
+      "causal_set": [
+        "input:instruction:R3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C612",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "input:memory:tier:C612",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C612"
+      },
+      "causal_set": [
+        "input:memory:tier:C612"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R3"
+      },
+      "causal_set": [
+        "input:instruction:R3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C961",
+      "decoy": "input:memory:lang:C961",
+      "predictions": {
+        "counterfactual": "input:memory:tier:C961",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C961"
+      },
+      "causal_set": [
+        "input:memory:tier:C961"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R2",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R2",
+        "last_tool_step": "step:3",
+        "first_error": "step:3",
+        "first_anomaly": "input:instruction:R2"
+      },
+      "causal_set": [
+        "input:instruction:R2"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C580",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:memory:tier:C580",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C580"
+      },
+      "causal_set": [
+        "input:memory:tier:C580"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R3"
+      },
+      "causal_set": [
+        "input:instruction:R3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C830",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "input:memory:tier:C830",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C830"
+      },
+      "causal_set": [
+        "input:memory:tier:C830"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": "input:memory:lang:C344",
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C344"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "input:memory:lang:C398",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C398"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "input:memory:lang:C154",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "input:memory:lang:C154"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C356",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C356"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "input:instruction:R3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R3"
+      },
+      "causal_set": [
+        "input:instruction:R3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C373",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:memory:tier:C373",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C373"
+      },
+      "causal_set": [
+        "input:memory:tier:C373"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": "input:memory:lang:C278",
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C278"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C446",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C446"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R3"
+      },
+      "causal_set": [
+        "input:instruction:R3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C893",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:memory:tier:C893",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C893"
+      },
+      "causal_set": [
+        "input:memory:tier:C893"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "input:memory:lang:C148",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C148"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C236",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C236"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R1",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "input:instruction:R1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R1"
+      },
+      "causal_set": [
+        "input:instruction:R1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C204",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:memory:tier:C204",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C204"
+      },
+      "causal_set": [
+        "input:memory:tier:C204"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": "input:memory:lang:C435",
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C435"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C998",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C998"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "input:instruction:R3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R3"
+      },
+      "causal_set": [
+        "input:instruction:R3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C670",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "input:memory:tier:C670",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:tier:C670"
+      },
+      "causal_set": [
+        "input:memory:tier:C670"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R1",
+      "decoy": "input:memory:lang:C753",
+      "predictions": {
+        "counterfactual": "input:instruction:R1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R1"
+      },
+      "causal_set": [
+        "input:instruction:R1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C124",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:memory:tier:C124",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:tier:C124"
+      },
+      "causal_set": [
+        "input:memory:tier:C124"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C736",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C736"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R1",
+      "decoy": "input:memory:lang:C833",
+      "predictions": {
+        "counterfactual": "input:instruction:R1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R1"
+      },
+      "causal_set": [
+        "input:instruction:R1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C625",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:memory:tier:C625",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:tier:C625"
+      },
+      "causal_set": [
+        "input:memory:tier:C625"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R3"
+      },
+      "causal_set": [
+        "input:instruction:R3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C189",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "input:memory:tier:C189",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C189"
+      },
+      "causal_set": [
+        "input:memory:tier:C189"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C361",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C361"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R1",
+      "decoy": "input:memory:lang:C701",
+      "predictions": {
+        "counterfactual": "input:instruction:R1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R1"
+      },
+      "causal_set": [
+        "input:instruction:R1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C866",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "input:memory:tier:C866",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:tier:C866"
+      },
+      "causal_set": [
+        "input:memory:tier:C866"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": "input:memory:lang:C775",
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C775"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": "input:memory:lang:C469",
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C469"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C521",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C521"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R1",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "input:instruction:R1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R1"
+      },
+      "causal_set": [
+        "input:instruction:R1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C420",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:memory:tier:C420",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:tier:C420"
+      },
+      "causal_set": [
+        "input:memory:tier:C420"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": "input:memory:lang:C631",
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C631"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": "input:memory:lang:C190",
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C190"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C685",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C685"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "input:memory:lang:C607",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "input:memory:lang:C607"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C929",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C929"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R3"
+      },
+      "causal_set": [
+        "input:instruction:R3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C504",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "input:memory:tier:C504",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C504"
+      },
+      "causal_set": [
+        "input:memory:tier:C504"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "input:memory:lang:C138",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "input:memory:lang:C138"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R2",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R2",
+        "last_tool_step": "step:3",
+        "first_error": "step:3",
+        "first_anomaly": "input:instruction:R2"
+      },
+      "causal_set": [
+        "input:instruction:R2"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C348",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "input:memory:tier:C348",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C348"
+      },
+      "causal_set": [
+        "input:memory:tier:C348"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "input:memory:lang:C434",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C434"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R1"
+      },
+      "causal_set": [
+        "input:instruction:R1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C290",
+      "decoy": "input:memory:lang:C290",
+      "predictions": {
+        "counterfactual": "input:memory:tier:C290",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C290"
+      },
+      "causal_set": [
+        "input:memory:tier:C290"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "input:memory:lang:C175",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:lang:C175"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:5"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:instruction:R1"
+      },
+      "causal_set": [
+        "input:instruction:R1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C643",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "input:memory:tier:C643",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C643"
+      },
+      "causal_set": [
+        "input:memory:tier:C643"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": "step:3",
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C556",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C556"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R2",
+      "decoy": "input:memory:lang:C428",
+      "predictions": {
+        "counterfactual": "input:instruction:R2",
+        "last_tool_step": "step:3",
+        "first_error": "step:3",
+        "first_anomaly": "input:instruction:R2"
+      },
+      "causal_set": [
+        "input:instruction:R2"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C333",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:memory:tier:C333",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:tier:C333"
+      },
+      "causal_set": [
+        "input:memory:tier:C333"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:tool:recall"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:6"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:lookup_order",
+      "ground_truth": "step:1",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:1",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:1"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "wrong_output:get_policy",
+      "ground_truth": "step:3",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "wrong_output:recall",
+      "ground_truth": "step:5",
+      "decoy": "input:memory:lang:C625",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C625"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "timeout:get_policy",
+      "ground_truth": "step:3",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "step:3",
+        "last_tool_step": "step:7",
+        "first_error": "step:3",
+        "first_anomaly": "step:3"
+      },
+      "causal_set": [
+        "step:3"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "timeout:recall",
+      "ground_truth": "step:5",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:5",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:5"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "drop_instruction",
+      "ground_truth": "input:instruction:R2",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:instruction:R2",
+        "last_tool_step": "step:3",
+        "first_error": "step:3",
+        "first_anomaly": "input:instruction:R2"
+      },
+      "causal_set": [
+        "input:instruction:R2"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "corrupt_memory",
+      "ground_truth": "input:memory:tier:C307",
+      "decoy": null,
+      "predictions": {
+        "counterfactual": "input:memory:tier:C307",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "input:memory:tier:C307"
+      },
+      "causal_set": [
+        "input:memory:tier:C307"
+      ],
+      "replays": 1
+    },
+    {
+      "fault_type": "remove_tool:recall",
+      "ground_truth": "input:tool:recall",
+      "decoy": "input:memory:lang:C908",
+      "predictions": {
+        "counterfactual": "input:tool:recall",
+        "last_tool_step": "step:5",
+        "first_error": "step:5",
+        "first_anomaly": "input:memory:lang:C908"
+      },
+      "causal_set": [
+        "input:tool:recall"
+      ],
+      "replays": 2
+    },
+    {
+      "fault_type": "llm_wrong_arg",
+      "ground_truth": "step:6",
+      "decoy": "step:1",
+      "predictions": {
+        "counterfactual": "step:6",
+        "last_tool_step": "step:7",
+        "first_error": "step:7",
+        "first_anomaly": "step:1"
+      },
+      "causal_set": [
+        "step:6"
+      ],
+      "replays": 2
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+[project]
+name = "causal-agent-evals"
+version = "0.1.0"
+description = "Counterfactual replay, ablation, fault injection and failure attribution for recorded agent runs"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

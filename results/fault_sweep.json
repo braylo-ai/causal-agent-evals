@@ -1,0 +1,56 @@
+{
+  "data": "SYNTHETIC: simulated LLM policy (no model weights) + sandbox tools",
+  "n_clean_runs": 100,
+  "faults": {
+    "empty_output:escalate": {
+      "injected": 14,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    "empty_output:get_policy": {
+      "injected": 100,
+      "fails": 100,
+      "fail_rate": 1.0
+    },
+    "empty_output:issue_refund": {
+      "injected": 31,
+      "fails": 31,
+      "fail_rate": 1.0
+    },
+    "empty_output:lookup_order": {
+      "injected": 100,
+      "fails": 45,
+      "fail_rate": 0.45
+    },
+    "empty_output:recall": {
+      "injected": 100,
+      "fails": 16,
+      "fail_rate": 0.16
+    },
+    "timeout:escalate": {
+      "injected": 14,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    "timeout:get_policy": {
+      "injected": 100,
+      "fails": 57,
+      "fail_rate": 0.57
+    },
+    "timeout:issue_refund": {
+      "injected": 31,
+      "fails": 31,
+      "fail_rate": 1.0
+    },
+    "timeout:lookup_order": {
+      "injected": 100,
+      "fails": 100,
+      "fail_rate": 1.0
+    },
+    "timeout:recall": {
+      "injected": 100,
+      "fails": 16,
+      "fail_rate": 0.16
+    }
+  }
+}

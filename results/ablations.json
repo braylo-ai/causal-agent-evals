@@ -1,0 +1,51 @@
+{
+  "data": "SYNTHETIC: simulated LLM policy (no model weights) + sandbox tools",
+  "n_clean_runs": 100,
+  "ablations": {
+    "remove_tool:lookup_order": {
+      "fail_rate": 1.0,
+      "fails": 100,
+      "n": 100
+    },
+    "remove_tool:get_policy": {
+      "fail_rate": 0.57,
+      "fails": 57,
+      "n": 100
+    },
+    "remove_tool:recall": {
+      "fail_rate": 0.16,
+      "fails": 16,
+      "n": 100
+    },
+    "remove_tool:issue_refund": {
+      "fail_rate": 0.31,
+      "fails": 31,
+      "n": 100
+    },
+    "remove_tool:escalate": {
+      "fail_rate": 0.0,
+      "fails": 0,
+      "n": 100
+    },
+    "drop_instruction:R1": {
+      "fail_rate": 0.14,
+      "fails": 14,
+      "n": 100
+    },
+    "drop_instruction:R2": {
+      "fail_rate": 0.16,
+      "fails": 16,
+      "n": 100
+    },
+    "drop_instruction:R3": {
+      "fail_rate": 0.04,
+      "fails": 4,
+      "n": 100
+    },
+    "clear_memory": {
+      "fail_rate": 0.16,
+      "fails": 16,
+      "n": 100
+    }
+  }
+}
